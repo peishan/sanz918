@@ -1,58 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Sanz’s Private Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Secure Dashboard</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-      color: white;
+    }
+    .login-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-}
-    h1 {
-      margin-bottom: 30px;
-      font-weight: 600;
+      height: 100vh;
     }
-    .link-card {
-      background: rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 15px 25px;
-      margin: 12px;
-      width: 280px;
-      transition: 0.3s;
-      backdrop-filter: blur(10px);
+    #dashboard {
+      display: none; /* hidden until login succeeds */
+      padding: 20px;
     }
-    .link-card:hover {
-      background: rgba(255,255,255,0.25);
-      transform: scale(1.05);
+    input[type="password"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-    a {
-color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1em;
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
     }
   </style>
 </head>
 <body>
-  <h1>🌌 Sanz’s Private Dashboard</h1>
-  <!-- Your links -->
-  <div class="link-card"><a href="http://www.sanjoelimnida.xyz">My Website</a></div>
-  <div class="link-card"><a href="https://bit.ly/parcels-tracker">My Parcels</a></div>
-  <div class="link-card"><a href="https://soels-care.pplx.app">Soel’s Care Dashboard</a></div>
-  <div class="link-card"><a href="https://storyforge-writing.pplx.app">StoryForge</a></div>
-  <div class="link-card"><a href="https://sans-budget-dashboard.netlify.app">Monthly Budget</a></div>
-  <div class="link-card"><a href="https://peishan.github.io/water-garden-grove/">Water Garden Grove</a></div>
-  <div class="link-card"><a href="https://peishan.github.io/Sans-plant-nanny/">Sanz’s Plant Nanny – Water Tracker</a></div>
-  <div class="link-card"><a href="http://peishan.github.io/Lchf-tracker/">My LCHF Journey</a></div>
+  <!-- Login Form -->
+  <div class="login-box" id="loginBox">
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button onclick="checkPassword()">Login</button>
+    <p id="message"></p>
+  </div>
 
+  <!-- Wrapped Dashboard Content -->
+  <div id="dashboard">
+    <h1>Welcome to the Dashboard</h1>
+    <p>This is your private content.</p>
+  </div>
+
+  <script>
+    // Allowed users and passwords
+    const users = {
+      "sanz": "test123",   // your password
+      "admin": "secret"    // admin password
+    };
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      let accessGranted = false;
+
+      // Loop through users to check if password matches
+      for (let user in users) {
+        if (input === users[user]) {
+          accessGranted = true;
+          break;
+        }
+      }
+
+      if (accessGranted) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+      } else {
+        document.getElementById("message").innerText = "Access Denied";
+      }
+    }
+  </script>
 </body>
 </html>
