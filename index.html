@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Sanz’s Private Dashboard</title>
+  <!-- Pulling the same font Linktree uses -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -26,7 +27,7 @@
       border-radius: 16px;
       padding: 15px 25px;
       margin: 12px;
-      width: 250px;
+      width: 260px;
       transition: 0.3s;
       backdrop-filter: blur(10px);
     }
@@ -40,6 +41,7 @@
       font-weight: 600;
       font-size: 1.1em;
     }
+    /* Login box */
     .login-box {
       display: flex;
       flex-direction: column;
@@ -81,6 +83,7 @@
   <div id="dashboard" style="display:none;">
     <h1>🌌 Sanz’s Private Dashboard</h1>
 
+    <!-- Your 7 links -->
     <div class="link-card"><a href="http://www.sanjoelimnida.xyz">🌐 My Website</a></div>
     <div class="link-card"><a href="https://bit.ly/parcels-tracker">📦 My Parcels</a></div>
     <div class="link-card"><a href="https://soels-care.pplx.app">🐾 Soel’s Care Dashboard</a></div>
@@ -92,8 +95,8 @@
 
   <script>
     const users = {
-      "sanz": "test123",
-      "admin": "secret"
+      "sanz": "test123",   // your password
+      "admin": "secret"    // admin password
     };
 
     function checkPassword() {
