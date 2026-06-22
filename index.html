@@ -1,62 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sanz Personal Dashboard</title>
+  <meta charset="UTF-8">
+  <title>Sanz’s Private Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9fb;
       margin: 0;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
     }
+    h1 {
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+    .link-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 15px 25px;
+      margin: 12px;
+      width: 250px;
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .link-card:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.05);
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    /* Login box */
     .login-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-    }
-    #dashboard {
-      display: none; /* hidden until login succeeds */
-    }
-    header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background: #f0f2f5;
     }
     input[type="password"] {
       padding: 10px;
@@ -89,50 +79,17 @@
   </div>
 
   <!-- Dashboard -->
-  <div id="dashboard">
-    <header>
-      <h1>Sanz Personal Dashboard</h1>
-    </header>
+  <div id="dashboard" style="display:none;">
+    <h1>🌌 Sanz’s Private Dashboard</h1>
 
-    <section>
-      <!-- Inventory -->
-      <div class="card">
-        <h2>📦 Inventory</h2>
-        <table>
-          <tr><th>Item</th><th>Unit</th><th>Status</th></tr>
-          <tr><td>Glad2Glow Moisturizer</td><td>E‑09</td><td>In stock</td></tr>
-          <tr><td>Meryem Night Cream</td><td>P‑09</td><td>Awaiting pickup</td></tr>
-          <tr><td>Glad2Glow Purple Toner</td><td>P‑09</td><td>Clearance stock</td></tr>
-        </table>
-      </div>
-
-      <!-- Writing Progress -->
-      <div class="card">
-        <h2>✍️ Writing Progress</h2>
-        <p><strong>RainyAve draft:</strong> 3,200 words</p>
-        <p><strong>Lingchenxi draft:</strong> 1,800 words</p>
-        <p>Goal: 10,000 refined words for AlphaNovel contract</p>
-      </div>
-
-      <!-- Plant Collection -->
-      <div class="card">
-        <h2>🌱 Plant Collection</h2>
-        <ul>
-          <li>Rack 1: Begonia Candy Stripe</li>
-          <li>Car Park Zone: Piper betle aureum</li>
-          <li>Redefined Zone: Aglaonema Madonna, Spider Plant</li>
-          <li>Shelf by Soel’s cage: Golden Pothos, Syngonium Panda</li>
-        </ul>
-      </div>
-
-      <!-- Parcels -->
-      <div class="card">
-        <h2>📦 Parcels</h2>
-        <p>Parcel 80: MUYU bedding order — awaiting NUJ pickup</p>
-        <p>Parcel 81: Basic Skincare Meryem Set — awaiting NUJ pickup</p>
-        <p>Parcel 82: Combo Meryem Night Cream & Moisturizer — awaiting NUJ pickup</p>
-      </div>
-    </section>
+    <!-- Your 7 links -->
+    <div class="link-card"><a href="http://www.sanjoelimnida.xyz">🌐 My Website</a></div>
+    <div class="link-card"><a href="https://bit.ly/parcels-tracker">📦 My Parcels</a></div>
+    <div class="link-card"><a href="https://soels-care.pplx.app">🐾 Soel’s Care Dashboard</a></div>
+    <div class="link-card"><a href="https://storyforge-writing.pplx.app">✍️ StoryForge</a></div>
+    <div class="link-card"><a href="https://sans-budget-dashboard.netlify.app">💰 Monthly Budget</a></div>
+    <div class="link-card"><a href="https://peishan.github.io/water-garden-grove/">🌱 Water Garden Grove</a></div>
+    <div class="link-card"><a href="https://peishan.github.io/Sans-plant-nanny/">💧 Sanz’s Plant Nanny – Water Tracker</a></div>
   </div>
 
   <script>
@@ -156,8 +113,8 @@
       if (loggedInUser) {
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("dashboard").style.display = "block";
-        const header = document.querySelector("header h1");
-        header.innerText = `Welcome, ${loggedInUser.charAt(0).toUpperCase() + loggedInUser.slice(1)}!`;
+        const header = document.querySelector("h1");
+        header.innerText = `🌌 Welcome, ${loggedInUser.charAt(0).toUpperCase() + loggedInUser.slice(1)}!`;
       } else {
         document.getElementById("message").innerText = "Access Denied";
       }
